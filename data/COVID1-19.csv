@@ -1,0 +1,192 @@
+Country Name,name,day,Cumulative_Deaths,Confirmed_Cases,id,population,Percent_Population_Affected,riskCategory1,riskCategory2,reset
+Papua New Guinea,Papua New Guinea,4/9/2020,0,1,PNG,6064515,0,Low,Low,All-Countries
+Saint Pierre and Miquelon,Saint Pierre and Miquelon,4/9/2020,0,1,227,6010,0.0166,Low,Low,All-Countries
+South Sudan,South Sudan,4/9/2020,0,1,SDS,12152321,0,Low,Low,All-Countries
+Timor-Leste,Timor-Leste,4/9/2020,0,1,TLS,1154625,0.0001,Low,Low,All-Countries
+Anguilla,Anguilla,4/9/2020,0,3,221,14764,0.0203,Low,Low,All-Countries
+British Virgin Islands,British Virgin Islands,4/9/2020,0,3,215,24939,0.012,Low,Low,All-Countries
+Burundi,Burundi,4/9/2020,0,3,BDI,9863117,0,Low,Low,All-Countries
+Sao Tome and Principe,Sao Tome and Principe,4/9/2020,0,4,186,175808,0.0023,Low,Low,All-Countries
+Bhutan,Bhutan,4/9/2020,0,5,BTN,699847,0.0007,Low,Low,All-Countries
+Montserrat,Montserrat,4/9/2020,0,6,228,5118,0.1172,Low,Low,All-Countries
+Sierra Leone,Sierra Leone,4/9/2020,0,6,SLE,5245695,0.0001,Low,Low,All-Countries
+Saint Vincent and the Grenadines,Saint Vincent and the Grenadines,4/9/2020,0,7,193,104217,0.0067,Low,Low,All-Countries
+Somalia,Somalia,4/9/2020,0,8,SOM,10112453,0.0001,Low,Low,All-Countries
+Central African Republic,Central African Republic,4/9/2020,0,9,CAF,4844927,0.0002,Low,Low,All-Countries
+Nepal,Nepal,4/9/2020,0,9,NPL,28951852,0,Low,Low,All-Countries
+Chad,Chad,4/9/2020,0,10,TCD,10543464,0.0001,Low,Low,All-Countries
+Mozambique,Mozambique,4/9/2020,0,10,MOZ,22061451,0,Low,Low,All-Countries
+Saint Kitts and Nevis,Saint Kitts and Nevis,4/9/2020,0,10,207,49898,0.02,Low,Low,All-Countries
+Greenland,Greenland,4/9/2020,0,11,GRL,57637,0.0191,Low,Low,All-Countries
+Seychelles,Seychelles,4/9/2020,0,11,196,88340,0.0125,Low,Low,All-Countries
+Grenada,Grenada,4/9/2020,0,12,190,107818,0.0111,Low,Low,All-Countries
+Saint Lucia,Saint Lucia,4/9/2020,0,14,187,160922,0.0087,Low,Low,All-Countries
+Antigua and Barbuda,Antigua and Barbuda,4/9/2020,0,15,197,86754,0.0173,Low,Low,All-Countries
+Dominica,Dominica,4/9/2020,0,15,DOM,72813,0.0206,Low,Low,All-Countries
+Fiji,Fiji,4/9/2020,0,15,FJI,957780,0.0016,Low,Low,All-Countries
+Equatorial Guinea,Equatorial Guinea,4/9/2020,0,16,GNQ,650702,0.0025,Low,Low,All-Countries
+Mongolia,Mongolia,4/9/2020,0,16,MNG,3086918,0.0005,Low,Low,All-Countries
+Namibia,Namibia,4/9/2020,0,16,NAM,2128471,0.0008,Low,Low,All-Countries
+New Caledonia,New Caledonia,4/9/2020,0,18,NCL,229993,0.0078,Low,Low,All-Countries
+Maldives,Maldives,4/9/2020,0,19,174,395650,0.0048,Low,Low,All-Countries
+Eritrea,Eritrea,4/9/2020,0,31,ERI,5792984,0.0005,Low,Low,All-Countries
+Guinea-Bissau,Guinea-Bissau,4/9/2020,0,33,GNB,1565126,0.0021,Low,Low,All-Countries
+Monaco,Monaco,4/9/2020,0,40,212,30586,0.1308,Low,Low,All-Countries
+French Polynesia,French Polynesia,4/9/2020,0,47,179,291000,0.0162,Low,Low,All-Countries
+Uganda,Uganda,4/9/2020,0,52,UGA,33398682,0.0002,Low,Low,All-Countries
+Aruba,Aruba,4/9/2020,0,71,192,104589,0.0679,Low,Low,All-Countries
+Madagascar,Madagascar,4/9/2020,0,92,MDG,21281844,0.0004,Low,Low,All-Countries
+Rwanda,Rwanda,4/9/2020,0,105,RWA,11055976,0.0009,Low,Low,All-Countries
+Cambodia,Cambodia,4/9/2020,0,117,KHM,14753320,0.0008,Low,Low,All-Countries
+Djibouti,Djibouti,4/9/2020,0,135,DJI,740528,0.0182,Low,Low,All-Countries
+Guinea,Guinea,4/9/2020,0,144,GIN,10324025,0.0014,Low,Low,All-Countries
+Faroe Islands,Faroe Islands,4/9/2020,0,184,208,49057,0.3751,Low,Low,All-Countries
+Viet Nam,Vietnam,4/9/2020,0,251,VNM,89571130,0.0003,Low,Low,All-Countries
+Malta,Malta,4/9/2020,0,293,173,406771,0.072,Low,Low,All-Countries
+Gambia,Gambia,4/9/2020,1,4,GMB,1824158,0.0002,Low,Low,All-Countries
+Botswana,Botswana,4/9/2020,1,6,BWA,2029307,0.0003,Low,Low,All-Countries
+Mauritania,Mauritania,4/9/2020,1,6,MRT,3205060,0.0002,Low,Low,All-Countries
+Nicaragua,Nicaragua,4/9/2020,1,6,NIC,5995928,0.0001,Low,Low,All-Countries
+Belize,Belize,4/9/2020,1,7,BLZ,314522,0.0022,Low,Low,All-Countries
+Malawi,Malawi,4/9/2020,1,8,MWI,15447500,0.0001,Low,Low,All-Countries
+Turks and Caicos Islands,Turks and Caicos Islands,4/9/2020,1,8,216,23528,0.034,Low,Low,All-Countries
+Suriname,Suriname,4/9/2020,1,10,SUR,486618,0.0021,Low,Low,All-Countries
+Libya,Libya,4/9/2020,1,21,LBY,6461454,0.0003,Low,Low,All-Countries
+Gabon,Gabon,4/9/2020,1,24,GAB,1545255,0.0016,Low,Low,All-Countries
+United Republic of Tanzania,United Republic of Tanzania,4/9/2020,1,24,TZA,41892895,0.0001,Low,Low,All-Countries
+Haiti,Haiti,4/9/2020,1,25,HTI,9203083,0.0003,Low,Low,All-Countries
+Benin,Benin,4/9/2020,1,26,BEN,9056010,0.0003,Low,Low,All-Countries
+Cayman Islands,Cayman Islands,4/9/2020,1,39,206,50209,0.0777,Low,Low,All-Countries
+Zambia,Zambia,4/9/2020,1,39,ZMB,12056923,0.0003,Low,Low,All-Countries
+United States Virgin Islands,United States Virgin Islands,4/9/2020,1,43,189,109775,0.0392,Low,Low,All-Countries
+Liechtenstein,Liechtenstein,4/9/2020,1,78,210,35002,0.2228,Low,Low,All-Countries
+Gibraltar,Gibraltar,4/9/2020,1,113,214,28877,0.3913,Low,Low,All-Countries
+Isle of Man,Isle of Man,4/9/2020,1,150,199,76913,0.195,Low,Low,All-Countries
+Kuwait,Kuwait,4/9/2020,1,855,KWT,2789132,0.0307,Moderate,Low,All-Countries
+New Zealand,New Zealand,4/9/2020,1,969,NZL,4252277,0.0228,Moderate,Low,All-Countries
+Zimbabwe,Zimbabwe,4/9/2020,2,11,ZWE,11651858,0.0001,Low,Low,All-Countries
+Sudan,Sudan,4/9/2020,2,14,SDN,41980182,0,Low,Low,All-Countries
+Angola,Angola,4/9/2020,2,17,AGO,13068161,0.0001,Low,Low,All-Countries
+Syrian Arab Republic,Syrian Arab Republic,4/9/2020,2,19,SYR,22198110,0.0001,Low,Low,All-Countries
+Saint Martin,Saint Martin,4/9/2020,2,31,213,30235,0.1025,Low,Low,All-Countries
+Bermuda,Bermuda,4/9/2020,2,39,201,68268,0.0571,Low,Low,All-Countries
+Ethiopia,Ethiopia,4/9/2020,2,52,ETH,88013491,0.0001,Low,Low,All-Countries
+Barbados,Barbados,4/9/2020,2,60,180,285653,0.021,Low,Low,All-Countries
+Mayotte,Mayotte,4/9/2020,2,184,181,231139,0.0796,Low,Low,All-Countries
+Senegal,Senegal,4/9/2020,2,237,SEN,14086103,0.0017,Low,Low,All-Countries
+Montenegro,Montenegro,4/9/2020,2,248,MNE,666730,0.0372,Low,Low,All-Countries
+Oman,Oman,4/9/2020,2,419,OMN,2967717,0.0141,Low,Low,All-Countries
+Oman,oman,4/9/2020,2,419,LKA,21513990,0.0019,Moderate,Low,All-Countries
+Costa Rica,Costa Rica,4/9/2020,2,467,CRI,4516220,0.0103,Moderate,Low,All-Countries
+Latvia,Latvia,4/9/2020,2,548,LVA,2217969,0.0247,Moderate,Low,All-Countries
+Slovakia,Slovakia,4/9/2020,2,598,SVK,5470306,0.0109,Moderate,Low,All-Countries
+Liberia,Liberia,4/9/2020,3,14,LBR,3685076,0.0004,Low,Low,All-Countries
+Myanmar,Myanmar,4/9/2020,3,22,MMR,53414374,0,Low,Low,All-Countries
+Togo,Togo,4/9/2020,3,58,TGO,6199841,0.0009,Low,Low,All-Countries
+Jamaica,Jamaica,4/9/2020,3,59,JAM,2847232,0.0021,Low,Low,All-Countries
+Guatemala,Guatemala,4/9/2020,3,77,GTM,13550440,0.0006,Low,Low,All-Countries
+Jersey,Jersey,4/9/2020,3,170,195,91812,0.1852,Low,Low,All-Countries
+Georgia,Georgia,4/9/2020,3,208,GEO,4600825,0.0045,Low,Low,All-Countries
+Côte d’Ivoire,Côte d’Ivoire,4/9/2020,3,349,CIV,21058798,0.0017,Low,Low,All-Countries
+Uzbekistan,Uzbekistan,4/9/2020,3,534,UZB,27865738,0.0019,Moderate,Low,All-Countries
+El Salvador,El Salvador,4/9/2020,4,78,SLV,6052064,0.0013,Low,Low,All-Countries
+Guernsey,Guernsey,4/9/2020,4,166,204,65632,0.2529,Low,Low,All-Countries
+Kyrgyzstan,Kyrgyzstan,4/9/2020,4,270,KGZ,5508626,0.0049,Low,Low,All-Countries
+Guyana,Guyana,4/9/2020,5,31,GUY,748486,0.0041,Low,Low,All-Countries
+Bahamas,Bahamas,4/9/2020,5,33,BHS,310426,0.0106,Low,Low,All-Countries
+Mali,Mali,4/9/2020,5,47,MLI,13796354,0.0003,Low,Low,All-Countries
+Republic of the Congo,Republic of the Congo,4/9/2020,5,49,COD,70916439,0.0001,Low,Low,All-Countries
+Paraguay,Paraguay,4/9/2020,5,115,PRY,6375830,0.0018,Low,Low,All-Countries
+Ghana,Ghana,4/9/2020,5,287,GHA,24339838,0.0012,Low,Low,All-Countries
+Bahrain,Bahrain,4/9/2020,5,821,163,738004,0.1112,Moderate,Low,All-Countries
+Kenya,Kenya,4/9/2020,6,172,KEN,40046566,0.0004,Low,Low,All-Countries
+Nigeria,Nigeria,4/9/2020,6,254,NGA,152217341,0.0002,Low,Low,All-Countries
+Jordan,Jordan,4/9/2020,6,353,JOR,6407085,0.0055,Low,Low,All-Countries
+Uruguay,Uruguay,4/9/2020,6,415,URY,3510386,0.0118,Low,Low,All-Countries
+Kazakhstan,Kazakhstan,4/9/2020,6,709,KAZ,15460484,0.0046,Moderate,Low,All-Countries
+Singapore,Singapore,4/9/2020,6,1481,SGP,4701069,0.0315,Moderate,Low,All-Countries
+Iceland,Iceland,4/9/2020,6,1586,ISL,308910,0.5134,Moderate,Low,All-Countries
+Qatar,Qatar,4/9/2020,6,2210,QAT,840926,0.2628,Moderate,Low,All-Countries
+Venezuela ,Venezuela,4/9/2020,7,165,VEN,27223228,0.0006,Low,Low,All-Countries
+Mauritius,Mauritius,4/9/2020,7,268,153,1294104,0.0207,Low,Low,All-Countries
+Trinidad and Tobago,Trinidad and Tobago,4/9/2020,8,106,TTO,1228691,0.0086,Low,Low,All-Countries
+Azerbaijan,Azerbaijan,4/9/2020,8,717,AZE,8303512,0.0086,Moderate,Low,All-Countries
+Armenia,Armenia,4/9/2020,8,877,ARM,2966802,0.0296,Moderate,Low,All-Countries
+Cameroon,Cameroon,4/9/2020,9,555,CMR,19294149,0.0029,Moderate,Low,All-Countries
+Niger,Niger,4/9/2020,11,278,NER,15878271,0.0018,Low,Low,All-Countries
+Cuba,Cuba,4/9/2020,11,396,CUB,11477459,0.0035,Low,Low,All-Countries
+United Arab Emirates,United Arab Emirates,4/9/2020,12,2659,ARE,4975593,0.0534,Moderate,Low,All-Countries
+Belarus,Belarus,4/9/2020,13,861,BLR,9612632,0.009,Moderate,Low,All-Countries
+South Africa,South Africa,4/9/2020,13,1749,ZAF,49109107,0.0036,Moderate,Low,All-Countries
+Bolivia (Plurinational State of),Bolivia (Plurinational State of),4/9/2020,14,194,BOL,9947418,0.002,Low,Low,All-Countries
+Afghanistan,Afghanistan,4/9/2020,14,423,AFG,29121286,0.0015,Moderate,Low,All-Countries
+Cyprus,Cyprus,4/9/2020,14,494,CYP,1102677,0.0448,Moderate,Low,All-Countries
+Lithuania,Lithuania,4/9/2020,15,880,LTU,3545319,0.0248,Moderate,Low,All-Countries
+Burkina Faso,Burkina Faso,4/9/2020,18,384,BFA,16241811,0.0024,Low,Low,All-Countries
+Croatia,Croatia,4/9/2020,18,1282,HRV,4486881,0.0286,Moderate,Low,All-Countries
+Lebanon,Lebanon,4/9/2020,19,575,LBN,4125247,0.0139,Moderate,Low,All-Countries
+Republic of the Congo,Republic of the Congo,4/9/2020,20,183,CD,70916439,0.0003,Low,Low,All-Countries
+Bangladesh,Bangladesh,4/9/2020,20,218,BGD,158065841,0.0001,Low,Low,All-Countries
+Estonia,Estonia,4/9/2020,21,1149,EST,1291170,0.089,Moderate,Low,All-Countries
+Honduras,Honduras,4/9/2020,22,305,HND,7989415,0.0038,Low,Low,All-Countries
+Albania,Albania,4/9/2020,22,400,ALB,3659616,0.0109,Low,Low,All-Countries
+Andorra,Andorra,4/9/2020,22,551,198,84525,0.6519,Moderate,Low,All-Countries
+Puerto Rico,Puerto Rico,4/9/2020,23,573,PRI,3977663,0.0144,Moderate,Low,All-Countries
+Bulgaria,Bulgaria,4/9/2020,23,577,BGR,7148785,0.0081,Moderate,Low,All-Countries
+Tunisia,Tunisia,4/9/2020,23,623,TUN,10589025,0.0059,Moderate,Low,All-Countries
+Thailand,Thailand,4/9/2020,30,2369,THA,66404688,0.0036,Moderate,Low,All-Countries
+Bosnia and Herzegovina,Bosnia and Herzegovina,4/9/2020,32,781,BIH,4621598,0.0169,Moderate,Low,All-Countries
+San Marino,San Marino,4/9/2020,34,279,211,31477,0.8864,Low,Low,All-Countries
+Finland,Finland,4/9/2020,34,2308,FIN,5255068,0.0439,Moderate,Low,All-Countries
+Slovenia,Slovenia,4/9/2020,36,1055,SVN,2003136,0.0527,Moderate,Low,All-Countries
+Saudi Arabia,Saudi Arabia,4/9/2020,41,2932,SAU,29207277,0.01,Moderate,Low,All-Countries
+Chile,Chile,4/9/2020,43,5116,CHL,16746491,0.0305,High,Low,All-Countries
+Luxembourg,Luxembourg,4/9/2020,44,2970,LUX,497538,0.5969,Moderate,Low,All-Countries
+Australia,Australia,4/9/2020,45,5956,AUS,21515754,0.0277,High,Low,All-Countries
+Colombia,Colombia,4/9/2020,46,1579,COL,44205293,0.0036,Moderate,Low,All-Countries
+Ukraine,Ukraine,4/9/2020,52,1668,UKR,45415596,0.0037,Moderate,Low,All-Countries
+Argentina,Argentina,4/9/2020,53,1628,ARG,41343201,0.0039,Moderate,Low,All-Countries
+Panama,Panama,4/9/2020,55,2100,PAN,3410676,0.0616,Moderate,Low,All-Countries
+Hungary,Hungary,4/9/2020,58,895,HUN,9880059,0.0091,Moderate,Low,All-Countries
+Pakistan,Pakistan,4/9/2020,58,4183,PAK,177276594,0.0024,High,Low,All-Countries
+Russian Federation,Russian Federation,4/9/2020,58,7497,RUS,139390205,0.0054,High,Low,All-Countries
+Serbia,Serbia,4/9/2020,61,2447,SRB,7344847,0.0333,Moderate,Low,All-Countries
+Malaysia,Malaysia,4/9/2020,63,3963,MYS,26160256,0.0151,Moderate,Low,All-Countries
+Iraq,Iraq,4/9/2020,65,1122,IRQ,29671605,0.0038,Moderate,Low,All-Countries
+Norway,Norway,4/9/2020,69,5863,NOR,4676305,0.1254,High,Low,All-Countries
+Israel,Israel,4/9/2020,71,9404,ISR,7353985,0.1279,High,Low,All-Countries
+Greece,Greece,4/9/2020,81,1832,GRC,10749943,0.017,Moderate,Low,All-Countries
+Japan,Japan,4/9/2020,81,4257,JPN,126804433,0.0034,High,Low,All-Countries
+Czech Republic,Czech Republic,4/9/2020,88,5017,CZE,10201707,0.0492,High,Low,All-Countries
+Morocco,Morocco,4/9/2020,91,1242,MAR,31627428,0.0039,Moderate,Low,All-Countries
+Peru,Peru,4/9/2020,92,2561,PER,29907003,0.0086,Moderate,Low,All-Countries
+Egypt,Egypt,4/9/2020,94,1450,EGY,80471869,0.0018,Moderate,Low,All-Countries
+Dominican Republic,Dominican Republic,4/9/2020,98,1956,DOM,9794487,0.02,Moderate,Low,All-Countries
+Mexico,Mexico,4/9/2020,125,2439,MEX,112468855,0.0022,Moderate,Low,All-Countries
+Poland,Poland,4/9/2020,129,4848,POL,38463689,0.0126,High,Low,All-Countries
+India,India,4/9/2020,149,5274,IND,1173108018,0.0004,High,Low,All-Countries
+Philippines,Philippines,4/9/2020,182,3870,PHL,99900177,0.0039,Moderate,Moderate,All-Countries
+Romania,Romania,4/9/2020,182,4417,ROU,22181287,0.0199,High,Moderate,All-Countries
+Ecuador,Ecuador,4/9/2020,191,3747,ECU,14790608,0.0253,Moderate,Moderate,All-Countries
+Algeria,Algeria,4/9/2020,194,1468,DZA,34586184,0.0042,Moderate,Moderate,All-Countries
+South Korea,South Korea,4/9/2020,200,10384,KOR,48636068,0.0214,High,Moderate,All-Countries
+Denmark,Denmark,4/9/2020,203,5071,DNK,5515575,0.0919,High,Moderate,All-Countries
+Ireland,Ireland,4/9/2020,210,5709,IRL,4250163,0.1343,High,Moderate,All-Countries
+Indonesia,Indonesia,4/9/2020,240,2956,IDN,242968342,0.0012,Moderate,Moderate,All-Countries
+Austria,Austria,4/9/2020,243,12640,AUT,8214160,0.1539,High,Moderate,All-Countries
+Portugal,Portugal,4/9/2020,345,12442,PRT,10735765,0.1159,High,Moderate,All-Countries
+Canada,Canada,4/9/2020,345,17049,CAN,33759742,0.0505,High,Moderate,All-Countries
+Brazil,Brazil,4/9/2020,553,12056,BRA,201103330,0.006,High,Moderate,All-Countries
+Sweden,Sweden,4/9/2020,591,7693,SWE,9074055,0.0848,High,Moderate,All-Countries
+Switzerland,Switzerland,4/9/2020,641,22164,CHE,7623438,0.2907,High,Moderate,All-Countries
+Turkey,Turkey,4/9/2020,725,34109,TUR,77804122,0.0438,High,Moderate,All-Countries
+Germany,Germany,4/9/2020,1861,103228,DEU,82282988,0.1255,High,Moderate,All-Countries
+Belgium,Belgium,4/9/2020,2035,22194,BEL,10423493,0.2129,High,High,All-Countries
+Netherlands,Netherlands,4/9/2020,2101,19580,NLD,16783092,0.1167,High,High,All-Countries
+China,China,4/9/2020,3342,83161,CHN,1330141295,0.0063,High,High,All-Countries
+Iran,Iran,4/9/2020,3993,64586,IRN,67037517,0.0963,High,High,All-Countries
+The United Kingdom,The United Kingdom,4/9/2020,6159,55246,GBR,61284806,0.0901,High,High,All-Countries
+France,France,4/9/2020,10313,77226,FRA,64057792,0.1206,High,High,All-Countries
+United States of America,United States of America,4/9/2020,10845,363321,USA,310232863,0.1171,High,High,All-Countries
+Spain,Spain,4/9/2020,13798,140510,ESP,40548753,0.3465,High,High,All-Countries
+Italy,Italy,4/9/2020,17129,135586,ITA,58090681,0.2334,High,High,All-Countries
