@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Coronavirus</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="HTML5 website template">
+    <meta name="keywords" content="global, template, html, sass, jquery">
+    <meta name="author" content="Sheryl Bernard">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<style>
+    .button_final {
+        background-color: #555555;/* black */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    .names {
+        fill: none;
+        stroke: #fff;
+        stroke-linejoin: round;
+    }
+
+    /* Tooltip CSS */
+    .d3-tip {
+        line-height: 1.5;
+        font-weight: 400;
+        font-family:"avenir next", Arial, sans-serif;
+        padding: 6px;
+        background: rgba(0, 0, 0, 0.6);
+        color: #FFA500;
+        border-radius: 1px;
+        pointer-events: none;
+    }
+
+    /* Creates a small triangle extender for the tooltip */
+    .d3-tip:after {
+        box-sizing: border-box;
+        display: inline;
+        font-size: 8px;
+        width: 100%;
+        line-height: 1.5;
+        color: rgba(0, 0, 0, 0.6);
+        position: absolute;
+        pointer-events: none;
+
+    }
+
+    /* Northward tooltips */
+    .d3-tip.n:after {
+        content: "\25BC";
+        margin: -1px 0 0 0;
+        top: 100%;
+        left: 0;
+        text-align: center;
+    }
+
+    /* Eastward tooltips */
+    .d3-tip.e:after {
+        content: "\25C0";
+        margin: -4px 0 0 0;
+        top: 50%;
+        left: -8px;
+    }
+
+    /* Southward tooltips */
+    .d3-tip.s:after {
+        content: "\25B2";
+        margin: 0 0 1px 0;
+        top: -8px;
+        left: 0;
+        text-align: center;
+    }
+
+    /* Westward tooltips */
+    .d3-tip.w:after {
+        content: "\25B6";
+        margin: -4px 0 0 -1px;
+        top: 50%;
+        left: 100%;
+    }
+
+    /*    text{
+          pointer-events:none;
+        }*/
+
+    .details{
+        color:white;
+    }
+
+</style>
+<body>
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://d3js.org/queue.v1.min.js"></script>
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+<script src="d3-tip.js"></script>
+
+
+<!-- notification for small viewports and landscape oriented smartphones -->
+<div class="device-notification">
+    <a class="device-notification--logo" href="#0">
+        <img src="image/corona_logo.png" alt="Global">
+        <p>Coronavirus</p>
+    </a>
+    <p class="device-notification--message">Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.</p>
+</div>
+
+<div class="perspective effect-rotate-left">
+    <div class="container"><div class="outer-nav--return"></div>
+        <div id="viewport" class="l-viewport">
+            <div class="l-wrapper">
+                <header class="header">
+                    <a class="header--logo" href="#0">
+                        <img src="image/corona_logo.png" alt="Coronavirus_logo" height="50">
+                        <p>Coronavirus</p>
+                    </a>
+                    <button class="header--cta cta">Know more</button>
+                    <div class="header--nav-toggle">
+                        <span></span>
+                    </div>
+                </header>
+                <nav class="l-side-nav">
+                    <ul class="side-nav">
+                        <li class="is-active"><span>Home</span></li>
+                        <li><span>About</span></li>
+                        <li><span>Symptoms</span></li>
+                    </ul>
+                </nav>
+                <ul class="l-main-content main-content">
+                    <li class="l-section section section--is-active">
+                        <div class="intro">
+                            <div class="intro--banner">
+                                <h1>Coronaviruses<br>are a type<br>of virus</h1>
+                                <button class="cta">Know more
+                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
+                  <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
+                    <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
+                  </g>
+                  </svg>
+                                    <span class="btn-background"></span>
+                                </button>
+                                <img src="image/corona_logo.png" alt="Welcome" height="450">
+                            </div>
+                            <div class="intro--options">
+                                <a href="#0">
+                                    <h3>What is COVID-19?</h3>
+                                    <p>This is a new virus called the severe acute respiratory syndrome. In March 2020, the World Health Organization(WHO) declared COVID-19 a pandemic. </p>
+                                </a>
+                                <a href="#0">
+                                    <h3>How does COVID-19 spread?</h3>
+                                    <p>It spreads from person to person among those in close contact(within about 6 feet). It spreads via respiratory droplets infected with the virus.</p>
+                                </a>
+                                <a href="#0">
+                                    <h3>Can COVID-19 be prevented or treated?</h3>
+                                    <p>There is no vaccine currently available for the coronavirus disease. Treatment is directed at relieving symptoms.</p>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="l-section section">
+                        <div class="work">
+                            <h2>About</h2>
+                            <div class="work--lockup">
+                                <ul class="slider">
+                                    <li class="slider--item slider--item-left">
+                                        <a href="#0">
+                                            <div class="slider--item-image">
+                                                <img src="image/fact3.jpg" alt="Contagious">
+                                            </div>
+                                            <p class="slider--item-title">Contagious</p>
+                                            <p class="slider--item-description">COVID-19 is a contagious disease that causes mild to severe respiratory symptoms with fever, cough, and shortness of breath.</p>
+                                        </a>
+                                    </li>
+                                    <li class="slider--item slider--item-center">
+                                        <a href="#0">
+                                            <div class="slider--item-image">
+                                                <img src="image/fact1.jpg" alt="Originated">
+                                            </div>
+                                            <p class="slider--item-title">Originated</p>
+                                            <p class="slider--item-description">The then-mystery illness, Covid-19 was first reported in Wuhan last December, not long before the lead up to the Lunar New Year when China undertakes the world’s largest mass migration.</p>
+                                        </a>
+                                    </li>
+                                    <li class="slider--item slider--item-right">
+                                        <a href="#0">
+                                            <div class="slider--item-image">
+                                                <img src="image/fact2.jpg" alt="Pandemic">
+                                            </div>
+                                            <p class="slider--item-title">Pandemic</p>
+                                            <p class="slider--item-description">COVID-19 pandemic has claimed the lives of more than 258,000 people and sickened more than 3.6 million people globally, with numbers still rising. </p>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="slider--prev">
+                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                         viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
+                  <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
+                    <path d="M561,1169C525,1155,10,640,3,612c-3-13,1-36,8-52c8-15,134-145,281-289C527,41,562,10,590,10c22,0,41,9,61,29
+                    c55,55,49,64-163,278L296,510h575c564,0,576,0,597,20c46,43,37,109-18,137c-19,10-159,13-590,13l-565,1l182,180
+                    c101,99,187,188,193,199c16,30,12,57-12,84C631,1174,595,1183,561,1169z"/>
+                  </g>
+                  </svg>
+                                </div>
+                                <div class="slider--next">
+                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
+                  <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
+                    <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
+                  </g>
+                  </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="l-section section">
+                        <div class="about">
+                            <div class="about--banner">
+                                <h2>Most<br> Common<br> Symptoms</h2>
+
+                                <p>COVID-19 affects different people in different ways. Infected people<br> have had a wide range of symptoms reported – from mild<br> symptoms to severe illness.
+                                </p>
+                                <img src="image/symptoms.jpg" alt="About Us">
+                            </div>
+                            <div class="about--options">
+                                <a href="#0">
+                                    <h3>Fever</h3>
+                                </a>
+                                <a href="#0">
+                                    <h3>Cough</h3>
+                                </a>
+                                <a href="#0">
+                                    <h3>Shortness of breath</h3>
+                                </a>
+                            </div>
+                            <button class="header--cta cta">Know more</button>
+                            <form style="padding-top: 75px;padding-left: 25px; padding-bottom: 50px" ;  method="get" action="presentation.html" >
+                                <button class="button_final" type="submit" style="color:#64dfff;">Know more</button>
+                            </form>
+                        </div>
+
+
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <ul class="outer-nav">
+        <li class="is-active">Home</li>
+        <li>About</li>
+        <li>Symptoms</li>
+    </ul>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="jquery-2.2.4.min.js"><\/script>')</script>
+<script src="functions-min.js"></script>
+</body>
+</html>

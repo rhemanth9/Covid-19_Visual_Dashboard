@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel='icon' href="image/corona.jpg"/>
+    <title>Final Project</title>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="d3-tip.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.6.3/d3-tip.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+
+
+        select {
+            display: block;
+        }
+        .bar {
+            fill: #188fff;
+            opacity: 0.8;
+        }
+
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: #f2fff0;
+            shape-rendering: optimizeSpeed;
+
+        }
+        .position {
+            float:right;
+            padding-right: 20px;
+        }
+        .left {
+            padding-left: 20px;
+            padding-top: 20px;
+            padding-right: 20px;
+        }
+
+        ul {
+            font: 12px sans-serif;
+        }
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px;
+            /* padding-bottom: 100px; Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .button {
+            background-color: #555555;/* black */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .button2 {
+            background-color: #385e4d;
+            border: none;
+            color: white;
+            align:right;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        } /* Blue */
+
+    </style>
+</head>
+<!--<body style="background-image: url('image/UN.png'); background-repeat: no-repeat;background-size: 30% 25%;background-position: center; ">
+<body style="background-image: url('white.jpg'); background-repeat: no-repeat;background-size:cover;background-position: center; ">
+<body style="background-color: #f2fff0;">-->
+<body style="background-image: url('image/black.jpg'); background-repeat: no-repeat;background-size:cover;background-position: center;">
+<div>
+    <center><h2 style="color:#5c3438;font-size:250%;" ><b>Day-Wise Corona Cases in each country</b></h2>
+
+    </center>
+    <h3 style="color:rgba(255,255,204,0.75);font-size:150%;font-family:verdana;" align="center"><b>Country</b></h3>
+    <p></p>
+</div>
+<div>
+
+</div>
+
+<div id='vis-container' xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" align="center" ></div>
+
+
+
+<script type="text/javascript">
+    // Load and munge data, then make the visualization.
+    // console.log(svg-container.d)
+    var fileName = "data/new_who.csv";
+    var years = ["16-Feb","17-Feb","18-Feb","19-Feb","20-Feb","21-Feb","22-Feb","23-Feb","24-Feb","25-Feb","26-Feb","27-Feb","28-Feb","29-Feb","1-Mar","2-Mar","3-Mar","4-Mar","5-Mar","6-Mar","7-Mar","8-Mar","9-Mar","10-Mar","11-Mar","12-Mar","13-Mar","14-Mar","15-Mar","16-Mar","17-Mar","18-Mar","19-Mar","20-Mar","21-Mar","22-Mar","23-Mar","24-Mar","25-Mar","26-Mar","27-Mar","28-Mar","29-Mar","30-Mar","31-Mar","1-Apr","2-Apr","3-Apr","4-Apr","5-Apr","6-Apr","7-Apr","8-Apr","9-Apr"];
+
+    // d3.csv(fileName, function(error,data){
+    //     console.log(data);
+    // });
+
+    d3.csv(fileName, function(error, data) {
+        var countryMap = {};
+        var date = {};
+        var country;
+        data.forEach(function(d) {
+            country = d.Country_Name;
+            countryMap[country] = [];
+            years.forEach(function(field) {
+                countryMap[country].push( +d[field] );
+            });
+
+            //console.log(countryMap);
+        });
+
+        delete countryMap['']
+        makeVis(countryMap);
+
+    });
+    var tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return d; });
+
+    var body = d3.select("body").node().getBoundingClientRect();
+    var makeVis = function(countryMap) {
+        // Define dimensions of vis
+        var margin = { top: 30, right: 50, bottom: 30, left: 50 },
+            width  = 1000 - margin.left - margin.right,
+            //width = body.width,
+            // console.log(width);
+            height = 500 - margin.top  - margin.bottom;
+        console.log(width);
+        // Make x scale
+        var xScale = d3.scale.ordinal()
+            .domain(years)
+            //.range([width, 0]);
+            .rangeRoundBands([0, 1400], 0.1)
+            ;
+        // Make y scale, the domain will be defined on bar update
+        var yScale = d3.scale.linear()
+            .range([height, 0]);
+
+        // Create canvas + margin.left + margin.right
+        var canvas = d3.select("#vis-container")
+            .append("svg")
+            .attr("width",  1500 )
+            .attr("height", height+ margin.left + margin.right)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        // Make x-axis and add to canvas
+        var xAxis = d3.svg.axis()
+            .scale(xScale)
+            .orient("bottom")
+
+        ;
+        //.tickFormat(d3.time.format("%m-%d-%y"));
+
+        canvas.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height + ")")
+            .style("text-anchor", "start")
+            //.attr("transform", "rotate(90)")
+            //.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+            .call(xAxis)
+            .selectAll("text")
+            .style("text-anchor", "end")
+            .style("fill","white")
+            .attr("dx", "-.1em")
+            .attr("dy", ".15em")
+            .attr("transform", "rotate(-80)");
+
+        // Make y-axis and add to canvas
+        var yAxis = d3.svg.axis()
+            .scale(yScale)
+            .orient("left");
+
+        var yAxisHandleForUpdate = canvas.append("g")
+            .attr("class", "y axis")
+            .style("fill","white")
+            .call(yAxis);
+
+        yAxisHandleForUpdate.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", ".700em")
+            .style("text-anchor", "end")
+            .style("fill","red")
+            .text("Number of Corona Cases");
+
+        var updateBars = function(data) {
+            // First update the y-axis domain to match data
+            yScale.domain( d3.extent(data) );
+            yAxisHandleForUpdate.call(yAxis);
+
+            var bars = canvas.selectAll(".bar").data(data);
+
+
+            // Add bars for new data
+            bars.enter()
+                .append("rect")
+                .attr("class", "bar")
+                .attr("x", function(d,i) { return xScale( years[i] ); })
+                .attr("width", xScale.rangeBand())
+                .attr("y", function(d,i) { return yScale(d); })
+                .attr("height", function(d,i) { return height - yScale(d); })
+                .on("mouseover", tip.show)
+
+                .on("mouseout", function(d){tip.hide});
+            bars.call(tip);
+            //.on("mouseout", handleMouseOut);
+
+            // Update old ones, already have x / width from before
+            bars
+                .transition().duration(250)
+                .attr("y", function(d,i) { return yScale(d); })
+                .attr("height", function(d,i) {
+                    return height - yScale(d);
+                });
+
+            // Remove old ones
+            bars.exit().remove();
+        };
+
+        // Handler for dropdown value change
+        var dropdownChange = function() {
+            // debugger;
+            var newcountry = d3.select(this).property('value');
+            if (newcountry === undefined){
+                newcountry = d3.select('#drop_down_id').property('value');
+            }
+            newData   = countryMap[newcountry];
+
+            updateBars(newData);
+        };
+
+        // Get names of countrys, for dropdown
+        var countrys = Object.keys(countryMap).sort();
+
+
+        var dropdown = d3.select("#vis-container")
+            .insert("select", "svg")
+            .attr("id", "drop_down_id")
+            .on("change", dropdownChange);
+
+        dropdown.selectAll("option")
+            .data(countrys)
+            .enter().append("option")
+            .attr("value", function (d) { return d; })
+            .text(function (d) {
+                return d[0].toUpperCase() + d.slice(1,d.length);
+            });
+        var x = d3.select("#drop_down_id")
+            .on("change", dropdownChange);
+
+        var initialData = countryMap[ countrys[0] ];
+        updateBars(initialData);
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+
+        var country_param = urlParams.get('country');
+        if (country_param !== undefined) {
+            d3.select("#drop_down_id").property('value', country_param);
+            d3.select("#drop_down_id").on("change")();
+        }
+    };
+    function myFunction() {
+        alert("Hello\nHow are you? \nthere?");
+    }
+
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+
+
+
+        <p class="lead"style ="font-family:Consolas;font-size:16px;color:antiquewhite" >Stay aware of the latest information on the COVID-19 outbreak, available on the
+            WHO website
+
+            and through your national and local public health authority. Most countries around the world have seen cases of COVID-19 and
+            many are experiencing outbreaks. Authorities in China and some other countries have succeeded in slowing their outbreaks.
+            However, the situation is unpredictable so check regularly for the latest news.</p >
+
+    </div>
+    <form style="padding-top: 75px;padding-left: 25px; padding-bottom: 50px" ;  method="get" action="world.html" >
+        <button class="button" type="submit" style="color:#64dfff;">WORLD MAP</button>
+    </form>
+</body>
+</html>

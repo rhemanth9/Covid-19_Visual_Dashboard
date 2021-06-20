@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel='icon' href="images/twitter.png"/>
+    <title>Final Project</title>
+    <div class="header">
+        <h1 style="color:#23fcff;" align="center"> &nbsp;What's Trending!?</h1><br>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
+    <script src="https://unpkg.com/d3-require@0.4.5/build/d3-require.js"></script>
+    <script src="https://unpkg.com/d3-let@0.3.2/build/d3-let.js"></script>
+    <script src="https://unpkg.com/d3-view@0.9.3/build/d3-view.js"></script>
+    <script src="modal.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<style>
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 50px;
+        /* padding-bottom: 100px; Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 90%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .bg-primary {
+        background-color: #0d0d0d;
+    }
+    .button {
+        background-color: #3cc0b3;/* black */
+        border: none;
+        color: #ff6e47;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    .button2 {background-color: #008CBA;} /* Blue */
+    .back {
+        float: left;
+    }
+
+    .continue {
+        float: right;
+    }
+    .position {
+        float:left;
+        padding-right: 20px;
+    }
+    .header img {
+        float: left;
+        width: 100px;
+        height: 130px;
+        padding-left: 50px;
+    }
+
+    .header h1 {
+        position: relative;
+        top: 18px;
+        left: 10px;
+    }
+    .button2 {
+        background-color: #125355;
+        border: none;
+        color: #ff884e;
+        align:right;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+
+    } /* Blue */
+
+</style>
+
+
+<body style="background-image: url('image/black.jpg'); background-repeat: no-repeat;background-size:cover;background-position: center; ">
+<!-- Trigger/Open The Modal -->
+
+<button id="myBtn" class="button2" style="right: 20px;float: right;" >About Us</button>
+
+<!-- The Modal-->
+<div id="myModal" class="modal">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>In this screen you can select country from drop down and view a graph plotted the number of corona cases from
+            starting to april 9th.
+            The link here takes you the dataset we have used
+            <a href="https://github.com/abhinay-somisetty/COVID-19-DataVisualization/tree/master/data">DATA SOURCE.</a>
+
+        </p>
+        <p >
+            <b>Q1: How did you choose your particular visual encodings and interaction techniques?</b>
+            <br>  The dataset for our Visualization is 'COVID-19 per country for April 9th'.We believed that a map would be helpful to visualize the dataset.
+            Initially we thought of using a pointer to point on each country and try to explore the data, but we were not able to achieve the desired results. So we have opted
+            tool tip where, when we mouse hover on any country it shows the covid-19 cases,deaths,total population of that country, and percentage of population affected.
+            We also added on click feature to the map. If we click on any country it will show the daywise confirmed cases of that country.
+            <br>
+            <br><b>Q2: What alternatives did you consider and how did you arrive at your ultimate choices?</b>
+            <br> Ans: Our alternative approach was to have a multi-line graph showing the confirmed covid cases in the last 5 days.
+            However, that would not have been very effective, as the dataset is very humungous and having multiple lines per country would have been very messy.
+            Thus, we decided to have a world map exciting our scheme without omitting any data and making the interactive visualization easy to understand.
+            <br>
+            <br><b>Q3: Development Process.</b>
+
+            <br>Data Wrangling : Sheryl Bernard
+            <br>Function definitions : Abhinay Somisetty
+            <br>UI : Sheryl
+            <br>D3 Adaption Functions : Hemanth Rachakonda
+            <br>Debugging : Combined efforts
+            <br>
+            <br><b> Q4: Commentary of the Development Process.</b>
+            <br>Ans:
+            Data wrangling: This was the most tedious task as the raw data was pretty random and had a lot of NULL/NA values. The Covid-19 dataset was published by WHO.
+            Also, we thought it will make more sense to have population with cumulative death and confirmed cases, for which we joined another dataset of country population.
+            We filtered the data to the most recent date that is 04/09. We included columns like confirmed cases,cumulative deaths and also created a new calculated  column
+            Percent_Population_Affected to better understand and make an effective visual. We also had risk factor rating for each country based on deaths and confirmed cases.
+            We used Trifacta for data wrangling.
+
+            Function definitions and UI: We initially created pseudocodes for the required functions that was supposed to be implemented and designed a skeleton of our code.
+            Post this, we created a raw sketch of the visualization.
+
+            D3 adaptation of functions: Since we had the pseudocode, it was easy to adapt it to D3 environment. It took us few hours to comprehend the implementation of concepts.
+
+            Debugging: Pre-existing D3 functions were still not working due to syntactical differences from other coding languages.
+            Due to a lot of null or zeros in the dataset, we had to filter out the data for proper visualization
+            <br>
+            <br><b>Q5: Time spent developing the application.</b>
+            <br> Ans: For data analysis and wrangling it took 12 hrs and it took us approximately 60-70 hours to implement and debug the code.
+
+        </p>
+    </div>
+
+</div>
+
+<div class='tableauPlaceholder' id='viz1588887241883' style='position: relative;';><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Co&#47;Covid_tweets&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Covid_tweets&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Co&#47;Covid_tweets&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>
+<script type='text/javascript'>
+    var divElement = document.getElementById('viz1588887241883');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1500px';vizElement.style.height='827px';}
+    else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1500px';vizElement.style.height='827px';}
+    else { vizElement.style.width='100%';vizElement.style.height='1177px';}
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+
+</script>
+
+<aside class="call-to-action bg-primary text-white">
+    <div class="container text-center">
+        <p class="lead"style ="font-family:Consolas;font-size:18px;color:#ffa765" > Based on above trends discussed, the most tweeted articles on twitter in recent times is Covid-19.
+            COVID-19 is an acute infectious respiratory disease caused by infection with the coronavirus subtype SARS-CoV-2,
+            first detected in Wuhan, China, in December 2019. It is currently spreading worldwide and is considered a pandemic disease.
+            To know more about the covid-19 cases across the world and stats related covid please use <b><em>NEXT</em> </b>button to proceed to next page.</p >
+    </div>
+</aside>
+
+
+<aside class="call-to-action bg-primary text-white">
+    <div class="container text-center">
+        <h3 style = "font-family:MS Gothic;font-size:26px;color:#69faff">Impact of covid-19 across the globe</h3>
+        <p class="lead"style ="font-family:Consolas;font-size:18px;color:#69faff" >Country-wise stats till 9th April.
+       Clicking any country on the map gives you day wise information</p >
+    </div>
+</aside>
+
+<iframe src ="world.html" width="100%" height="1100" frameborder="0px"></iframe>
+<aside class="call-to-action bg-primary text-white">
+    <div class="container text-center">
+        <h3 style = "font-family:MS Gothic;font-size:26px;color:#ffa87c">Risk factor in various countries</h3>
+        <p class="lead"style ="font-family:Consolas;font-size:18px;color:#69faff" >Use buttons below to know from low-high risk stats. </p >
+    </div>
+</aside>
+<iframe src ="bubble.html" width="100%" height="800" frameborder="0px"></iframe>
+<!--<br><br><p style ="padding-left: 50px;padding-right:50px; color: #575959">
+    Based on above trends on twitter we concluded that the most tweeted articles on twitter is about Covid-19.
+    COVID-19 is an acute infectious respiratory disease caused by infection with the coronavirus subtype SARS-CoV-2,
+    first detected in Wuhan, China, in December 2019. It is currently spreading worldwide and is considered a pandemic disease.
+    To know more about the covid-19 cases across the world and stats related covid please use <b><em>NEXT</em> </b>button to proceed to next page.
+
+</p>
+<div style="width:1400px;">
+    <div style="float: right; width: 1px;padding-right:50px ">
+        <form id="thistoo" action="world.html" method="get" align="right"   >
+            <button class="button" type="submit" value="Next" style="color:#1051ff;" >Next</button>
+        </form>
+    </div>
+</div>
+<aside class="call-to-action bg-primary text-white">
+<div style="width:1400px;">
+    <div style="float: left; width: 130px;padding-left:50px">
+        <form id="thisone" action="presentation.html" method="get">
+            <button class="button" type="submit"  value="Previous" style="color:#64dfff;" >Previous</button>
+        </form>
+    </div>
+    <div style="float: right; width: 1px;padding-right:50px ">
+        <form id="thistoo" action="BAR.html" method="get" align="right">
+            <button class="button" type="submit"  value="Next" style="color:#64dfff;" >Next</button>
+        </form>
+    </div>
+</div>
+</aside>-->
+
+<footer style="float: right;color:#0ea2ff; padding-right: 75px">
+    <left><p>Designed By:Hemanth Rachakonda</p></left>
+</footer>
+</body>
+
+</html>

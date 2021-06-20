@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px;
+            /* padding-bottom: 100px; Location of the box */
+            left: 0;
+            top: 0;
+            width: 30%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            aling:left;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .button2 {
+            background-color: #385e4d;
+            border: none;
+            color: white;
+            align:right;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+    <meta charset="utf-8">
+    <title>Interactive Bubble Chart</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/bubble_style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://d3js.org/queue.v1.min.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="d3-tip.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+
+
+</head>
+<body style="background-image: url('image/black.jpg'); background-repeat: no-repeat;background-size:cover;background-position: center; ">
+
+
+<div id="bubbleContainer" frameborder="0px">
+
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn" class="button2" style="position:relative; left: -500px;" align="right">Know me</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <ul><u><b>Confirmed Cases</b></u>
+                    <li>Low         : 0-500</li>
+                    <li>Moderate    : 500-4000</li>
+                    <li>High        : >4000</li>
+            </ul>
+            <ul><u><b>Confirmed Deaths</b></u>
+                <li>Low         : 0-150</li>
+                <li>Moderate    : 150-2000</li>
+                <li>High        : >2000</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+    <div id="overallRatings" class="btn-group btn-info top-btn" data-toggle="buttons">
+        <label class="btn active ratingBtn" id="reset">
+            <input type="radio" name="options">Reset</label>
+        <label class="btn ratingBtn" id="riskCategory2">
+            <input type="radio" name="options">Deaths</label>
+        <label class="btn ratingBtn" id="riskCategory1">
+            <input type="radio" name="options">Confirmed Cases</label>
+    </div>
+    <div id="bubbleChart">
+    </div>
+
+</div>
+</div>
+
+<script src="bubbles.js">
+
+
+</script>
+
+</body>
+
+</html>

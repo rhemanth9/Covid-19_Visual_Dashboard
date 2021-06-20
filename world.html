@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel='icon' href="image/corona.jpg"/>
+<title>Final Project</title>
+<style>
+    .button {
+        background-color: #555555;/* black */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    .names {
+        fill: none;
+        stroke: #fff;
+        stroke-linejoin: round;
+    }
+
+    /* Tooltip CSS */
+    .d3-tip {
+        line-height: 1.5;
+        font-weight: 400;
+        font-family: "avenir next", Arial, sans-serif;
+        padding: 6px;
+        background: rgba(0, 0, 0, 0.6);
+        color: #FFA500;
+        border-radius: 1px;
+        pointer-events: none;
+    }
+
+    /* Creates a small triangle extender for the tooltip */
+    .d3-tip:after {
+        box-sizing: border-box;
+        display: inline;
+        font-size: 8px;
+        width: 100%;
+        line-height: 1.5;
+        color: rgba(0, 0, 0, 0.6);
+        position: absolute;
+        pointer-events: none;
+
+    }
+
+    /* Northward tooltips */
+    .d3-tip.n:after {
+        content: "\25BC";
+        margin: -1px 0 0 0;
+        top: 100%;
+        left: 0;
+        text-align: center;
+    }
+
+    /* Eastward tooltips */
+    .d3-tip.e:after {
+        content: "\25C0";
+        margin: -4px 0 0 0;
+        top: 50%;
+        left: -8px;
+    }
+
+    /* Southward tooltips */
+    .d3-tip.s:after {
+        content: "\25B2";
+        margin: 0 0 1px 0;
+        top: -8px;
+        left: 0;
+        text-align: center;
+    }
+
+    /* Westward tooltips */
+    .d3-tip.w:after {
+        content: "\25B6";
+        margin: -4px 0 0 -1px;
+        top: 50%;
+        left: 100%;
+    }
+
+    /*    text{
+          pointer-events:none;
+        }*/
+
+    .details {
+        color: white;
+    }
+
+    h1 {
+        color: #ff321b;
+        font-family: verdana;
+        font-size: 160%;
+    }
+
+    p {
+        color: #20a7ff;
+        font-family: courier;
+        font-size: 100%;
+        /*border: 2px solid powderblue;
+         margin: 50px;*/
+        padding: 30px;
+        padding-left: 50px;
+        padding-right:50px;
+    }
+    .legend {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 60%;
+        color: white; //added, but doesn't work
+    }
+    .legendLinear text.label {
+        fill: '#ffffff';
+    }
+
+    li.key {
+        border-top-width: 15px;
+        border-top-style: solid;
+        font-size: .75em;
+        width: 10%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+</style>
+<head>
+   <!-- <h1 style="color:rgba(54,132,17,0.5);" align="center"> &nbsp;Impact of covid-19 across the globe</h1><br>
+    <p>This visualization demonstrates the number of COVID cases across the globe as of April 9th. The
+        data is provided by WHO.
+        In the below visual the countries with lighter blue has very less cases and countries with higher cases is
+        colored with red. The color range is from Blue to Red.
+        Mouseover on any country to see the Covid-19 recent stats. Clicking on any country will navigate to a new screen which shows day wise stats of the country selected.
+    </p>-->
+        </head>
+<body style="background-image: url('image/black.jpg'); background-repeat: no-repeat;background-size:cover;background-position: center; ">
+
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/queue.v1.min.js"></script>
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+<script src="d3-tip.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/1.13.0/d3-legend.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+
+
+<div id="country" class="svg-container">
+
+    <svg id="click" xmlns="http://www.w3.org/2000/svg" width="100%" height="80">
+        <defs>
+            <g id="pointer" transform="scale(0.8)">
+                <path d="M0-1c-14.5-25.6-14.5-25.7-14.5-33.8c0-8.1,6.5-14.6,14.5-14.6s14.5,6.6,14.5,14.6C14.5-26.7,14.5-26.6,0-1z"></path>
+                <path d="M0-49c7.7,0,14,6.3,14,14.1c0,8,0,8.1-14,32.8c-14-24.7-14-24.9-14-32.8C-14-42.7-7.7-49,0-49 M0-50c-8.3,0-15,6.8-15,15.1 S-15-26.5,0,0c15-26.5,15-26.5,15-34.9S8.3-50,0-50L0-50z"></path>
+            </g>
+        </defs>
+    </svg>
+</div>
+
+<script>
+
+    var format = d3.format(",");
+
+    // Set tooltips
+    var tip = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function (d) {
+            console.log(d);
+            return "<strong>Country: </strong><span class='details'>" + d.country_name + "<br></span>" +
+                "<strong>Confirmed Cases: </strong><span class='details'>" + format(d.Confirmed_Cases) + "<br></span>" +
+                "<strong>Cumulative Deaths: </strong><span class='details'>" + format(d.Cumulative_Deaths) + "<br></span>"+
+                "<strong>Population: </strong><span class='details'>" + format(d.population) + "<br></span>"+
+                "<strong>Percentage of Population affected: </strong><span class='details'>" + format(d.Percent_Population_Affected) +"<br></span>";
+
+
+        });
+    var body = d3.select("body").node().getBoundingClientRect();
+    console.log(body);
+    var margin = {top: 0, right: 0, bottom: 0, left: 0},
+        width = body.width,
+        height = 700 - margin.top - margin.bottom;
+
+
+    var color = d3.scale.threshold()
+        .domain([1,10, 100, 200, 500, 750, 1000, 2500, 5000, 7500, 10000, 20000, 35000, 50000, 100000, 200000, 3000000, 360000])
+        .range(["rgb(217,231,245)","rgb(222,235,247)","rgb(197,221,245)", "rgb(198,219,239)", "rgb(158,202,225)","rgb(152,172,255)","rgb(107,150,245)", "rgb(113,168,245)",    "rgb(107,174,214)", "rgb(66,146,198)", "rgb(33,113,181)", "rgb(8,81,156)", "rgb(8,48,107)", "rgb(3,19,43)",
+            "rgb(102,57,62)","rgb(102,34,35)","rgb(102,4,9)"])
+    ;
+
+    var path = d3.geo.path();
+    //var dataUrl =
+    var svg = d3.select("body")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append('g')
+        .attr('class', 'map');
+
+    var projection = d3.geo.mercator()
+        .scale(130)
+        .translate([width / 2, height / 1.5]);
+
+
+    var path = d3.geo.path().projection(projection);
+
+    svg.call(tip);
+
+    queue()
+        .defer(d3.json, 'data/world_countries.json')
+        .defer(d3.csv, 'data/COVID1-19.csv')
+        .await(ready);
+
+    var g = svg.append("g")
+        .attr("class", "legendThreshold")
+        .attr("transform", "translate(20,20)");
+    g.append("text")
+        .attr("class", "caption")
+        .attr("x", 0)
+        .attr("y", -6)
+        .text("Confirmed Cases")
+        .style("fill", "white");
+    //var labels = ['0', '1-5', '6-10', '11-25', '26-100', '101-1000', '> 1000'];
+    var labels = ['1','10', '100', '200', '500', '750', '1000', '2500', '5000', '7500', '10000', '20000', '35000', '50000', '100000', '200000', '3000000', '360000'];
+    var legend = d3.legendColor()
+        .labels(function (d) { return labels[d.i]; })
+        .shapePadding(4)
+        .scale(color);
+    svg.select(".legendThreshold")
+        .call(legend)
+        .style("fill", "white");
+
+    function ready(error, data, Confirmed_Cases) {
+        var confCasesById = {};
+        var confDeathsById = {};
+        var popById = {};
+        var perPopById = {};
+        var country_id_name_map = {};
+        console.log(Confirmed_Cases);
+        Confirmed_Cases.forEach(function (d) {
+            confCasesById[d.id] = +d.Confirmed_Cases;
+            confDeathsById[d.id] = +d.Cumulative_Deaths
+            popById[d.id] = +d.population;
+            perPopById[d.id] = +d.Percent_Population_Affected;
+            country_id_name_map[d.id] = d.name;
+        });
+        data.features.forEach(function (d) {
+            d.Confirmed_Cases = confCasesById[d.id];
+            d.Cumulative_Deaths = confDeathsById[d.id];
+            d.population = popById[d.id];
+            d.Percent_Population_Affected = perPopById[d.id];
+            d.country_name = country_id_name_map[d.id];
+        });
+
+        // Cumulative_Deaths.forEach(function(d) { confCasesById[d.id] = +d.Cumulative_Deaths; });
+        // data.features.forEach(function(d) { d.Cumulative_Deaths = confCasesById[d.id] });
+        var div = d3.select("body")
+            .append("div")  // declare the tooltip div
+            .attr("class", "d3-tip")              // apply the 'tooltip' class
+            .style("opacity", 0);                  // set the opacity to nil
+
+        svg.append("g")
+            .attr("class", "countries")
+            .selectAll("path")
+            .data(data.features)
+            .enter().append("path")
+            .attr("d", path)
+            .attr("cursor", "pointer")
+            //.attr("data-legend",function(d) { return d.name})
+            .style("fill", function (d) {
+                return color(confCasesById[d.id]);
+            })
+            .style('stroke', 'white')
+            .style('stroke-width', 1.5)
+            .style("opacity", 0.8)
+            // tooltips
+            .style("stroke", "white")
+            .style('stroke-width', 0.3)
+            .on('mouseover', function (d) {
+                tip.show(d);
+
+                d3.select(this)
+                    .style("opacity", 1)
+                    .style("stroke", "white")
+                    .style("stroke-width", 3);
+            })
+            .on('mouseout', function (d) {
+                tip.hide(d);
+
+                d3.select(this)
+                    .style("opacity", 0.8)
+                    .style("stroke", "white")
+                    .style("stroke-width", 0.3);
+
+            })
+            .on('click', function (d){
+                console.log("kk",d.properties.name);
+                var newWindow = window.open("BAR.html"+"?country="+d.country_name,"_self");
+                svg = d3.select(newWindow.document.body);
+                // newWindow.document.write("<p>This is 'MsgWindow'. I am 200px wide and 100px tall!</p>");
+                return "This is data element #" + d;
+
+            });
+
+
+        svg.append("path")
+            .datum(topojson.mesh(data.features, function (a, b) {
+                return a.id !== b.id;
+            }))
+            // .datum(topojson.mesh(data.features, function(a, b) { return a !== b; }))
+            .attr("class", "names")
+            .attr("d", path);
+
+    }
+
+</script>
+
+<br>
+<br>
+
+
+
+
+
+</body>
+</html>
